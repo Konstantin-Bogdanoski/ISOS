@@ -9,3 +9,5 @@ Any contribution is welcome.
 > Ова репо ги содржи сите датотеки од предметот Имплементација на Системи со Отворен Код 2019.
 
 >**Не е** дозволено присвојување на repo-то.
+***
+OneDrive Files (Audio, PDF Presentations, etc.) [onedrive.365.Konstantin-Bogdanoski](https://finkiukim-my.sharepoint.com/:f:/g/personal/konstantin_bogdanoski_students_finki_ukim_mk/ElHnby4COcNEiwZIrUnaN3ABJRirrKKQFET2dBf8yFIvjQ?e=9VJbCt)
