@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin News Panel</title>
+    <!-- @author Konstantin Bogdanoski (konstantin.b@live.com) -->
+    <link rel="stylesheet" type="text/css" href="news.css">
+</head>
+<body>
+<div>
+    <h1>Admin NEWS Panel</h1>
+</div>
+<div>
+    <form action="news.php" method="post">
+        <table>
+            <tr>
+                <td>
+                    <label for="newsName">Naslov na novosta:</label>
+                </td>
+                <td>
+                    <input type="text" id="newsName" name="newsName" placeholder="News Name" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="newsDesc">Celosen tekst na novosta:</label>
+                </td>
+                <td>
+                    <textarea name="newsDesc" id="newsDesc" rows="4" cols="40" placeholder="News Description"
+                              required></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <button type="submit">Submit</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
