@@ -31,12 +31,19 @@ if ($allNews->rowCount() > 0)
             } else
                 echo $row[$i]['full_text'];
             echo "</td>";
+
+            $commentQry = " SELECT COUNT(*) FROM news.comments WHERE news_id=" . $id;
+            $commentStmt = $conn->prepare($commentQry);
+            $commentStmt->execute();
+            $numComments = $commentStmt->fetchColumn();
+
             echo "<td class='newsComment''>";
             echo "<form method='post' action='../news/index.php'>";
             echo "<input type='hidden' name='newsId' value='$id'>";
-            echo "<button formaction='/news/index.php' formmethod='post'>Comments</button>";
+            echo "<button formaction='/news/index.php' formmethod='post'>Comments ($numComments)</button>";
             echo "</form>";
             echo "</td>";
+
             echo "<td class='newsEdit''>";
             echo "<form method='get' action='../edit'>";
             echo "<input type='hidden' name='newsid' value='$id'>";
