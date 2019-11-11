@@ -5,7 +5,7 @@
 
 require_once("../config/connection.php");
 readfile("admin.html");
-$query = "SELECT * FROM news";
+$query = "SELECT * FROM news ORDER BY date DESC LIMIT 5";
 $allNews = $conn->query($query);
 
 if ($allNews->rowCount() > 0)
@@ -22,7 +22,20 @@ if ($allNews->rowCount() > 0)
             echo $row[$i]['news_title'];
             echo "</td>";
             echo "<td class='newsArticle'>";
-            echo $row[$i]['full_text'];
+            if (strlen($row[$i]['full_text']) > 100) {
+                echo substr($row[$i]['full_text'], 0, 100);
+                echo "<form method='post'>";
+                echo "<input type='hidden' name='newsId' value='$id'>";
+                echo "<button formaction='/news/index.php' value='$id' formmethod='post'>continue reading...</button>";
+                echo "</form>";
+            } else
+                echo $row[$i]['full_text'];
+            echo "</td>";
+            echo "<td class='newsComment''>";
+            echo "<form method='post' action='../news/index.php'>";
+            echo "<input type='hidden' name='newsId' value='$id'>";
+            echo "<button formaction='/news/index.php' formmethod='post'>Comments</button>";
+            echo "</form>";
             echo "</td>";
             echo "<td class='newsEdit''>";
             echo "<form method='get' action='../edit'>";

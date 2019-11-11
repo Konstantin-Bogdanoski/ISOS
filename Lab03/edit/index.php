@@ -10,9 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newName = $_POST['newsName'];
     $newDesc = $_POST['newsDesc'];
     $newsId = $_POST['newsId'];
-    $query = "UPDATE news.news SET full_text=" . $newDesc . " news_title=" . $newName . " WHERE news_id=" . $newsId;
-    $res = $conn->query($query);
-    var_dump($res);
+    var_dump($newName);
+    var_dump($newDesc);
+    var_dump($newsId);
+    $query = "UPDATE news.news SET full_text=:newDesc, news_title=:newName WHERE news_id=:newsId";
+    $stmt = $conn->prepare($query);
+    $stmt->execute(["newDesc" => $newDesc, "newName" => $newName, "newsId" => $newsId]);
     header("Location: http://localhost:8080/admin/admin.php");
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $newsId = $_GET["newsid"];

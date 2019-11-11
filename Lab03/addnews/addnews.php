@@ -3,7 +3,7 @@
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
 if ($_SERVER['REQUEST_METHOD'] === 'GET')
-    readfile("news.html");
+    readfile("addnews.html");
 else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once("../config/connection.php");
     $newsName = $_POST["newsName"];

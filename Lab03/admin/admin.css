@@ -78,6 +78,6 @@ table.redTable tfoot .links a {
     width: 50%;
 }
 
-.newsEdit, .newsDelete {
-    width: 10%;
+.newsEdit, .newsDelete, .newsComments {
+    width: 6.5%;
 }
