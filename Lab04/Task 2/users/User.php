@@ -24,14 +24,13 @@ class User
 
     public function isValid()
     {
-        return !preg_match('/[^A-Za-z] [^A-Za-z]$/', $this->getName())
-            && !preg_match('/[0-9]7[0-9] [0-9]{3} [0-9]{3}$/', $this->getPhone())
-            && !preg_match('/[^A-Za-z] [0-9]{5}/', $this->getAddress());
+        return (ctype_alpha(str_replace(" ", "", $this->getName()))
+            && preg_match('/[0-9]7[0-9] [0-9]{3} [0-9]{3}$/', $this->getPhone()));
     }
 
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -39,7 +38,7 @@ class User
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name): void
     {

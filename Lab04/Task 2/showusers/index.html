@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Panel</title>
+    <!-- @author Konstantin Bogdanoski (konstantin.b@live.com) -->
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        table.redTable {
+            border: 2px solid #A40808;
+            background-color: #EEE7DB;
+            width: 100%;
+            text-align: center;
+            border-collapse: collapse;
+        }
+
+        table.redTable td, table.redTable th {
+            border: 1px solid #AAAAAA;
+            padding: 3px 2px;
+        }
+
+        table.redTable tbody td {
+            font-size: 13px;
+        }
+
+        table.redTable tr:nth-child(even) {
+            background: #F5C8BF;
+        }
+
+        table.redTable thead {
+            background: #A40808;
+        }
+
+        table.redTable thead th {
+            font-size: 19px;
+            font-weight: bold;
+            color: #FFFFFF;
+            text-align: center;
+            border-left: 2px solid #A40808;
+        }
+
+        table.redTable thead th:first-child {
+            border-left: none;
+        }
+
+        table.redTable tfoot {
+            font-size: 13px;
+            font-weight: bold;
+            color: #FFFFFF;
+            background: #A40808;
+        }
+
+        table.redTable tfoot td {
+            font-size: 13px;
+        }
+
+        table.redTable tfoot .links {
+            text-align: right;
+        }
+
+        table.redTable tfoot .links a {
+            display: inline-block;
+            background: #FFFFFF;
+            color: #A40808;
+            padding: 2px 8px;
+            border-radius: 5px;
+        }
+
+        .name, .number, .address {
+            width: 33%;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1>Users</h1>
+    <form method="get" action="../validate">
+        <button type="submit">Validate Users</button>
+    </form>
+    <br>
+    <form method="get" action="../index.php">
+        <button type="submit">Upload another file</button>
+    </form>
+</div>
+<hr>
+<div>
+    <table class="redTable">
+        <thead>
+        <tr>
+            <th class="name">
+                Name
+            </th>
+            <th class="number">
+                Phone Number
+            </th>
+            <th class="address">
+                Address
+            </th>
+            <th class="validated">
+                Validated
+            </th>
+        </tr>
+        </thead>
