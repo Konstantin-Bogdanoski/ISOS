@@ -63,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     else
                         echo "<input id='approvedCheckbox' type='checkbox' name='approved' formmethod='post' formaction='../updatecomment' onchange='this.form.submit()'>";
                     echo "</form>";
-                    echo "<form>";
+                    echo "<form method='post' action='../deletecomment'>";
                     echo "<input type='hidden' value='$commentID' name='commentId'>";
                     echo "<input type='hidden' value='$newsId' name='newsId'>";
                     echo "<button type='submit'>Delete comment</button>";

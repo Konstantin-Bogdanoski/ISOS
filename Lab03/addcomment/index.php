@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute([$newsId, $author, $comment, $approved]);
     ?>
 
-    <form id="form" method="post" action="../news/index.php">
+    <form id="form" method="post" action="../usersnews/index.php">
         <?php
         echo "<input type='hidden' value='$newsId' name='newsId'>";
         ?>
