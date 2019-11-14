@@ -49,9 +49,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if ($comments->rowCount() > 0)
             while ($comment = $comments->fetchAll())
                 for ($i = 0; $i < count($comment); $i++) {
-                    echo "<div style='border: #A40808 2px solid'>" . "<h3>" . $comment[$i]['author'] . "</h3>" . "<p>" . $comment[$i]['comment'] . "</p>";
+                    echo "<div style='border: #A40808 2px solid; padding: 10px; margin: 10px; width: 50%'>" . "<h3>" . $comment[$i]['author'] . "</h3>" . "<p>" . $comment[$i]['comment'] . "</p>";
                     $commentID = $comment[$i]['comment_id'];
-                    echo "<form method='post' action='../deletecomment'>";
+                    echo "<input type='hidden' value='$commentID' name='commentId'>";
+                    echo "<input type='hidden' value='$newsId' name='newsId'>";
+                    $checked = $comment[$i]['approved'] == 1 ? 'checked' : '';
+                    echo "<label for='approvedCheckbox'>Approved:</label>";
+                    echo "<form method='post' action='../updatecomment'>";
+                    echo "<input type='hidden' value='$commentID' name='commentId'>";
+                    echo "<input type='hidden' value='$newsId' name='newsId'>";
+                    if ($checked == 'checked')
+                        echo "<input id='approvedCheckbox' type='checkbox' checked='checked' name='approved' formmethod='post' formaction='../updatecomment' onchange='this.form.submit()'>";
+                    else
+                        echo "<input id='approvedCheckbox' type='checkbox' name='approved' formmethod='post' formaction='../updatecomment' onchange='this.form.submit()'>";
+                    echo "</form>";
+                    echo "<form>";
                     echo "<input type='hidden' value='$commentID' name='commentId'>";
                     echo "<input type='hidden' value='$newsId' name='newsId'>";
                     echo "<button type='submit'>Delete comment</button>";
@@ -62,19 +74,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             echo "NO COMMENTS";
         ?>
     </div>
-</div>
-<div>
-    <form method="post" action="../addcomment">
-        <?php
-        echo "<input type='hidden' value='$newsId' name='newsId'>";
-        ?>
-        <label for="author">Author</label><br>
-        <input type="text" name="author" id="author" placeholder="Author"><br>
-        <label for="comment">Comment</label><br>
-        <textarea name="comment" id="comment" placeholder="Comment" rows="5" cols="40"></textarea>
-        <br>
-        <button type="submit">Add Comment</button>
-    </form>
+    <div style="border: solid 2px black; padding: 10px; margin: 10px; width: 50%">
+        <form method="post" action="../addcomment">
+            <?php
+            echo "<input type='hidden' value='$newsId' name='newsId'>";
+            ?>
+            <label for="author">Author</label><br>
+            <input type="text" name="author" id="author" placeholder="Author"><br>
+            <label for="comment">Comment</label><br>
+            <textarea name="comment" id="comment" placeholder="Comment" rows="5" cols="40"
+                      style="width: 100%"></textarea>
+            <br>
+            <button type="submit">Add Comment</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

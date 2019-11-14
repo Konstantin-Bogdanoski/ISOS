@@ -7,7 +7,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     require_once("../config/connection.php");
     $author = $_POST['author'];
     $comment = $_POST['comment'];
-    $approved = true;
+    $approved = 0;
     $newsId = $_POST['newsId'];
 
     $query = "INSERT INTO news.comments (news_id, author, comment, approved) VALUES (?, ?, ?, ?)";
