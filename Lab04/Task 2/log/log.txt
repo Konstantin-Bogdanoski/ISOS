@@ -1,5 +1,5 @@
 
-USER NOT VALID - LINE: Ime1111 Prezime; 070 333 333; Adresa 16, TEMP
- | FILE: invalidText.txt
-USER NOT VALID - LINE: Ime222 Prezime112; 070 3x3 333; Adresa 16, TEMP
- | FILE: invalidText.txt
+[VALID] User not valid - Line: Ime1111 Prezime; 070 333 333; Adresa 16, TEMP
+ | File: invalidText.txt
+[VALID] User not valid - Line: Ime222 Prezime112; 070 3x3 333; Adresa 16, TEMP
+ | File: invalidText.txt

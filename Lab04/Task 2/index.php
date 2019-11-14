@@ -31,8 +31,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             ?>
             <h1>You have uploaded a file!</h1><br>
             <?php
-        } else
+        } else {
             echo "<h1>You didn't upload any files</h1>";
+            $handleLog = fopen("../log/log.txt", "a+");
+            fputs($handleLog, "\n[UPLOAD] User didn't upload file");
+            fclose($handleLog);
+        }
     }
     ?>
     <form method="get" action="showusers">

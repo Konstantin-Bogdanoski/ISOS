@@ -4,7 +4,7 @@
  */
 include "../users/User.php";
 $files = scandir('../files/');
-$handleLog = fopen("../log/log.txt", "w+");
+$handleLog = fopen("../log/log.txt", "a+");
 $invalidFiles = [];
 $validity = true;
 foreach ($files as $file) {
@@ -20,13 +20,13 @@ foreach ($files as $file) {
                 $validity = false;
                 echo "<p><strong>USER</strong>: " . $line . " <strong>NOT VALID</strong> FROM FILE <strong>" . $file . "</strong>";
                 echo "</p>";
-                fputs($handleLog, "\nUSER NOT VALID - LINE: " . $line . " | FILE: " . $file);
+                fputs($handleLog, "\n[VALID] User not valid - Line: " . $line . " | File: " . $file);
                 array_push($invalidFiles, $file);
                 array_unique($invalidFiles);
             }
         }
     } else {
-        fputs($handleLog, "\nERROR WHILE OPENING FILE " . $file);
+        fputs($handleLog, "\n[ERROR] Error while opening file: " . $file);
     }
 }
 
