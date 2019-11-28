@@ -43,10 +43,9 @@ else{
                     <?php echo $shopping_list[$i]['list_name']?>
                 </td>
                 <td style="border: 2px solid black">
-                    <form id="goToShoppingList" method="post" action="./shoppingList">
-                        <input hidden value="<?php echo $shopping_list[$i]['shopping_list_id']?>">
-                        <input hidden id="secret">
-                    <button type="button" onclick="checkValidity()">Check out Shopping List</button>
+                    <form method="post" action="./shoppingList">
+                        <input hidden name="shopping_list_id" value="<?php echo $shopping_list[$i]['shopping_list_id']?>">
+                    <button type="submit">Check out Shopping List</button>
                     </form>
                 </td>
                 <td style="border: 2px solid black">
@@ -88,13 +87,3 @@ if($flag){
 }
 
 ?>
-<script>
-    function checkValidity() {
-        debugger;
-        let value = window.prompt("Enter your secret");
-        if(!(value == null || value.isEmpty())) {
-            document.getElementById("secret").innerText = value;
-            document.getElementById("goToShoppingList").submit();
-        }
-    }
-</script>
