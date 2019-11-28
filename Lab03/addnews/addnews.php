@@ -12,5 +12,6 @@ else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "INSERT INTO news (news_title, full_text, date) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($query);
     $stmt->execute([$newsName, $newsDesc, $newsDate]);
+    $stmt->closeCursor();
     header("Location: http://localhost:8080/admin/admin.php");
 }

@@ -9,5 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "DELETE FROM news where news_id=?";
     $stmt = $conn->prepare($query);
     $stmt->execute([$newsId]);
+    $stmt->closeCursor();
     header("Location: http://localhost:8080/admin/admin.php");
 }

@@ -13,6 +13,7 @@ $approvedVal = $approved == "on" ? 1 : 0;
 $query = "UPDATE news.comments SET approved=? WHERE comment_id=?";
 $stmt = $conn->prepare($query);
 $stmt->execute([$approvedVal, $commentId]);
+$stmt->closeCursor();
 
 ?>
 

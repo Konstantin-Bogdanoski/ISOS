@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $newsTitle = $row[0]['news_title'];
     $newsDesc = $row[0]['full_text'];
 
+    $news->closeCursor();
 }
 ?>
 
@@ -72,6 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 }
         else
             echo "NO COMMENTS";
+        $comments->closeCursor();
         ?>
     </div>
     <div style="border: solid 2px black; padding: 10px; margin: 10px; width: 50%">

@@ -63,3 +63,5 @@ echo "</table>";
 echo "</div>";
 echo "</body>";
 echo "</html>";
+$commentStmt->closeCursor();
+$allNews->closeCursor();

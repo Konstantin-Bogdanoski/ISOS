@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $row = $news->fetchAll();
     $newsTitle = $row[0]['news_title'];
     $newsDesc = $row[0]['full_text'];
-
+    $news->closeCursor();
 }
 ?>
 
@@ -71,3 +71,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </div>
 </body>
 </html>
+<?php
+$comments->closeCursor();

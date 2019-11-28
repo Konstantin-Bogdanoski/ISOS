@@ -24,4 +24,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         document.getElementById("form").submit();
     </script>
 
-<?php } ?>
+<?php }
+$stmt->closeCursor();

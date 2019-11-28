@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $query = "UPDATE news.news SET full_text=:newDesc, news_title=:newName WHERE news_id=:newsId";
     $stmt = $conn->prepare($query);
     $stmt->execute(["newDesc" => $newDesc, "newName" => $newName, "newsId" => $newsId]);
+    $stmt->closeCursor();
     header("Location: http://localhost:8080/admin/admin.php");
 } else if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $newsId = $_GET["newsid"];
@@ -26,6 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $newsTitle = $row[0]['news_title'];
         $newsDesc = $row[0]['full_text'];
     }
+    $news->closeCursor();
 }
 ?>
 <!DOCTYPE html>
