@@ -2,4 +2,4 @@
 /**
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
-require_once("./config/connection.php");
+// GO TO Exams/Groceries/Task 1
