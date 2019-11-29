@@ -4,7 +4,7 @@
  */
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-    require_once ("../config/connection.php");
+    require_once("../config/connection.php");
     $secret = $_POST['secret'];
     $shopping_list_id = $_POST['shopping_list_id'];
     $product_id = $_POST['product_id'];

@@ -39,7 +39,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `is_bought` TINYINT(1) NULL DEFAULT 0,
   `is_urgent` TINYINT(1) NULL DEFAULT 0,
   `created_at` DATETIME NOT NULL,
-  PRIMARY KEY (`product_id`)),
+  PRIMARY KEY (`product_id`),
   INDEX `pid_idx` (`product_id` ASC),
   CONSTRAINT `shopping_list_id`
     FOREIGN KEY (`shopping_list_id`)

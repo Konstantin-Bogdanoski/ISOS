@@ -3,7 +3,7 @@
  * @author Konstantin Bogdanoski (konstantin.b@live.com)
  */
 if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['secret'])) {
-    require_once ("../config/connection.php");
+    require_once("../config/connection.php");
     $secret = $_POST['secret'];
     $shopping_list_id = $_POST['shoppingListId'];
     $query = "SELECT * FROM shopping_list WHERE shopping_list_id=?";
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['secret'])) {
 } else if ($_SERVER['REQUEST_METHOD'] === "GET" && isset($_GET['ID'])) {
     $shopping_list_id = $_GET['ID'];
     ?>
-    <form method="post" action="../shoppingList/index.php">
+    <form method="post" action="index.php">
         <input name="shoppingListId" value="<?php echo $shopping_list_id ?>" hidden>
         <label for="secret">Password</label><br>
         <input id="secret" type="password" name="secret"><br>

@@ -44,14 +44,14 @@ else{
                     <?php echo $shopping_list[$i]['list_name']?>
                 </td>
                 <td style="border: 2px solid black">
-                   <a href="./shoppingList?ID=<?php echo $shopping_list[$i]['shopping_list_id'] ?>">Check out shopping list</a>
+                   <a href="shoppingList?ID=<?php echo $shopping_list[$i]['shopping_list_id'] ?>">Check out shopping list</a>
                 </td>
                 <td style="border: 2px solid black">
                             <?php
                                 $checked = $shopping_list[$i]['favorite'] == 1 ? 'checked' : '';
                             ?>
                             <label for='favoriteCheckbox'>Favorite:</label>
-                            <form method='post' action='./updateList'>
+                            <form method='post' action='updateList'>
                             <input type='hidden' value='<?php echo $shopping_list[$i]['shopping_list_id']?>' name='shopping_list_id'>
                             <?php
                             if ($checked == 'checked') {

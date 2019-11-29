@@ -4,7 +4,7 @@
  */
 if($_SERVER['REQUEST_METHOD'] === "GET"){
     ?>
-    <form method="post" action="../addList">
+    <form method="post" action="">
         <label for="list_name">List name:</label><br>
         <input id="list_name" type="text" name="list_name" placeholder="List name" required><br>
         <label for="creator">Creator:</label><br>
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD'] === "GET"){
     <?php
 }
 else if ($_SERVER['REQUEST_METHOD'] === "POST"){
-    require_once ("../config/connection.php");
+    require_once("../config/connection.php");
     $list_name = $_POST['list_name'];
     $email = $_POST['creator'];
     $secret = $_POST['secret'];
