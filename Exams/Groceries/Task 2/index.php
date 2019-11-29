@@ -20,6 +20,7 @@ else{
 }
 ?>
     <h1>Shopping Lists</h1>
+    <button onclick="location.href='/addList'">Add new list</button>
     <table style="border: 2px solid black">
         <thead style="border: 2px solid black">
             <tr>
@@ -43,10 +44,7 @@ else{
                     <?php echo $shopping_list[$i]['list_name']?>
                 </td>
                 <td style="border: 2px solid black">
-                    <form method="post" action="./shoppingList">
-                        <input hidden name="shopping_list_id" value="<?php echo $shopping_list[$i]['shopping_list_id']?>">
-                    <button type="submit">Check out Shopping List</button>
-                    </form>
+                   <a href="./shoppingList?ID=<?php echo $shopping_list[$i]['shopping_list_id'] ?>">Check out shopping list</a>
                 </td>
                 <td style="border: 2px solid black">
                             <?php

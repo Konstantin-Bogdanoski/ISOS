@@ -55,7 +55,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ';
     $q = $conn->query($sql);
     $conn->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
-    //$q->setFetchMode(PDO::FETCH_ASSOC);
+    //$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $pe) {
     die("Could not connect to the database $dbname :" . $pe->getMessage());
 }
