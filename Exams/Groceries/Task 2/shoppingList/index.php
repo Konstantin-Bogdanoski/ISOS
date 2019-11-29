@@ -20,6 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['secret'])) {
                     $products = $conn->prepare($query);
                     $products->execute([$shopping_list_id])
                     ?>
+                    <h1>Your shopping list: <?php echo $list[$i]['list_name'] ?></h1>
+                    <button style="margin: 10px; width: 27%" onclick="location.href='/'">All Lists</button>
                     <table style="border: 2px solid black">
                     <thead style="border: 2px solid black">
                         <tr style="border: 2px solid black">
@@ -115,18 +117,17 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['secret'])) {
                     }
                     ?>
                     </table>
-                    <form method="post" action="../addProduct" style="border: 1px solid black">
+                    <form method="post" action="../addProduct" style="border: 2px solid black; display: inline-block; padding: 20px; margin-top: 10px;">
                         <input name="shopping_list_id" value="<?php echo $shopping_list_id?>" hidden>
                         <input name="secret" value="<?php echo $secret?>" hidden>
                         <label for="product_name">Product Name</label><br>
                         <input id="product_name" name="product_name" type="text" required><br>
                         <label for="quantity">Quantity</label><br>
-                        <input id="quantity" name="quantity" type="number" min="1" required><br>
+                        <input id="quantity" style="width: 97%" name="quantity" type="number" min="1" required><br>
                         <label for="is_urgent">Is urgent?</label><br>
                         <input id="is_urgent" name="is_urgent" type="checkbox"><br>
-                        <button type="submit">Add Item</button>
+                        <button type="submit" style="width: 100%">Add Item</button>
                     </form>
-                    <button onclick="location.href='/'">All Lists</button>
                     <?php
                 }
             }
@@ -138,7 +139,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST" && isset($_POST['secret'])) {
     <form method="post" action="../shoppingList/index.php">
         <input name="shoppingListId" value="<?php echo $shopping_list_id ?>" hidden>
         <label for="secret">Password</label><br>
-        <input id="secret" type="text" name="secret"><br>
+        <input id="secret" type="password" name="secret"><br>
         <button type="submit">Submit</button>
     </form>
     <?php
