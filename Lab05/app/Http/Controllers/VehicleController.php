@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Company;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -15,9 +17,9 @@ class VehicleController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Company $company)
     {
-        //
+        return view('vehicles.show', compact('company'));
     }
 
     /**
@@ -55,10 +57,10 @@ class VehicleController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param int $id
-     * @return Response
+     * @param Vehicle $vehicle
+     * @return void
      */
-    public function edit($id)
+    public function edit(Vehicle $vehicle)
     {
         //
     }

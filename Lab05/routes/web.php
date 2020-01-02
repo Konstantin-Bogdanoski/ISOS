@@ -11,6 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::bind('vehicles', function ($value, $route) {
+    return App\Vehicle::whereSlug($value)->first();
+});
+
+Route::bind('companies', function ($value, $route) {
+    return App\Company::whereSlug($value)->first();
+});
+
+
+Route::resource('companies', 'CompanyController');
+
+Route::resource('companies.vehicles', 'VehicleController');
+
