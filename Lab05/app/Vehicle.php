@@ -8,7 +8,7 @@ class Vehicle extends Model
 {
     protected $table = "vehicles";
 
-    protected $fillable = ['mark', 'description', 'slug', 'released_at', 'price', 'created_at', 'updated_at'];
+    protected $fillable = ['mark', 'description', 'slug', 'released_at', 'price', 'created_at', 'updated_at', 'company_id'];
 
     public function company()
     {

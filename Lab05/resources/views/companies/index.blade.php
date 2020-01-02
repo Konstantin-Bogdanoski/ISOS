@@ -11,30 +11,30 @@
         <table class="table table-striped">
             <thead>
             <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Description</th>
                 <th>Founded At</th>
+                <th>Number of vehicles</th>
                 <th colspan="2">Action</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($companies ?? '' as $company)
+            @foreach($companies as $company)
                 <tr>
-                    <td>{{$company["id"]}}</td>
                     <td>{{$company["name"]}}</td>
                     <td>{{$company["description"]}}</td>
                     <td>{{$company["founded_at"]}}</td>
+                    <td>{{$company[0]["num"]}}</td>
                     <td>
                         <a href="{{action('CompanyController@edit', $company["slug"])}}"
-                           class="btn btn-warning">Edit</a><br><br>
+                           class="btn btn-warning" style="width: 100%">Edit</a><br><br>
                         <form action="{{action('CompanyController@destroy', $company["slug"])}}" method="post">
                             {{csrf_field()}}
                             <input name="_method" type="hidden" value="DELETE">
-                            <button class="btn btn-danger" type="submit">Delete</button>
+                            <button style="width: 100%" class="btn btn-danger" type="submit">Delete</button>
                         </form>
                         <br>
-                        <button class="btn btn-info" type="button"
+                        <button class="btn btn-info" type="button" style="width: 100%"
                                 onclick="location.href='/companies/{{$company["slug"]}}/vehicles'">Vehicles
                         </button>
                     </td>

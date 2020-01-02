@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Company;
+use App\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\ValidationException;
@@ -20,7 +21,13 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::all()->toArray();
+        $tempCompanies = Company::all()->toArray();
+        $companies = array();
+        foreach ($tempCompanies as $company) {
+            $numOfVehicles = array("num" => Vehicle::where('company_id', $company["id"])->count());
+            array_push($company, $numOfVehicles);
+            array_push($companies, $company);
+        }
         return view('companies.index', compact('companies'));
     }
 
