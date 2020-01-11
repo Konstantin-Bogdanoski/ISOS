@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Preorder;
 use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -36,7 +37,16 @@ class PreordersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $preorder = $this->validate(request(), [
+            'preorder_user' => 'required',
+            'quantity' => 'required',
+            'info' => 'required',
+            'product_id' => 'required',
+            'product_slug' => 'required'
+        ]);
+
+        Preorder::create($preorder);
+        return redirect('/products/' . $request->get('product_slug'))->with('success', 'Preorder has been added');
     }
 
     /**

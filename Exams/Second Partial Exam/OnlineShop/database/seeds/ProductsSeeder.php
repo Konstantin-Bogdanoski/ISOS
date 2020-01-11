@@ -26,7 +26,7 @@ class ProductsSeeder extends Seeder
             'image' => 'https://upload.wikimedia.org/wikipedia/commons/7/70/Chocolate_%28blue_background%29.jpg',
             'description' => 'Tasty chocolate',
             'price' => 2.99,
-            'required_number' => 3,
+            'required_number' => 4,
         ]);
 
         DB::table('products')->insert([

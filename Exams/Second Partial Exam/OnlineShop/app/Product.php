@@ -8,7 +8,7 @@ class Product extends Model
 {
     protected $table = 'products';
 
-    protected $fillable = ['name', 'slug', 'image', 'description', 'price'];
+    protected $fillable = ['name', 'slug', 'image', 'description', 'price', 'required_number'];
 
     public function preorders()
     {

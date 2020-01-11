@@ -11,12 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', "ProductsController@home")->name("products.home");
 
-Route::resource('products', 'ProductsController');
-Route::resource('products.preorders', 'PreordersController');
+Route::get('/products/current', "ProductsController@current")->name("products.current");
 
 Route::bind('products', function ($value, $route) {
     return App\Product::whereSlug($value)->first();
@@ -25,3 +22,7 @@ Route::bind('products', function ($value, $route) {
 Route::bind('preorders', function ($value, $route) {
     return App\Preorder::whereSlug($value)->first();
 });
+
+Route::resource('products', 'ProductsController');
+
+Route::resource('products.preorders', 'PreordersController');

@@ -23,35 +23,47 @@
                     Price
                 </th>
                 <th>
-                    Preorders
+                    Required orders
+                </th>
+                <th>
+                    Actions
                 </th>
             </tr>
             </thead>
             <tbody>
-            @foreach($products as $product)
+            @foreach($products ?? '' as $product)
                 <tr>
+                    <td>{{$product['name']}}</td>
+                    <td><img style="width: 100px" src="{{$product['image']}}" alt=""></td>
+                    <td>{{$product['description']}}</td>
+                    <td>{{$product['price']}}$</td>
                     <td>
-                        {{$product['name']}}
+                        {{$product['required_number']}}
                     </td>
                     <td>
-                        <img style="width: 100px" src="{{$product['image']}}" alt="">
-                    </td>
-                    <td>
-                        {{$product['description']}}
-                    </td>
-                    <td>
-                        {{$product['price']}}
-                    </td>
-                    <td>
-                        <button onclick="location.href='/products/{{$product['slug']}}/preorders'"
+                        <button onclick="location.href='/products/{{$product['slug']}}'"
                                 class="btn btn-info"
-                                style="width: 69%">
-                            {{$product['required_number']}}
+                                style="width: 100%">
+                            Preorders
                         </button>
+                        <a href="{{action('ProductsController@edit', $product['slug'])}}"
+                           class="btn btn-warning" style="width: 100%">
+                            Edit
+                        </a>
+                        <form method="post" action="{{action('ProductsController@destroy', $product['slug'])}}">
+                            {{csrf_field()}}
+                            <input type="hidden" name="_method" value="DELETE">
+                            <button type="submit" class="btn btn-danger" style="width: 100%">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+        <div class="form-group col-md-2">
+            <button type="button" class="btn btn-success" style="margin-left:38px"
+                    onclick="location.href='/products/create'">Add Product
+            </button>
+        </div>
     </div>
 @endsection
