@@ -1,7 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
+/**
+ * @author Konstantin Bogdanoski (konstantin.b@live.com)
+ */
 class CommentsSeeder extends Seeder
 {
     /**

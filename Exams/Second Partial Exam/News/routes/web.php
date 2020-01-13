@@ -11,6 +11,24 @@
 |
 */
 
+/**
+ * @author Konstantin Bogdanoski (konstantin.b@live.com)
+ */
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/news/top', 'NewsController@top')->name('news.top');
+
+Route::bind('news', function ($value, $route) {
+    return App\News::where('id', $value)->first();
+});
+
+Route::bind('news.comments', function ($value, $route) {
+    return App\Comment::where('id', $value)->first();
+});
+
+Route::resource('news', 'NewsController');
+
+Route::resource('news.comments', 'CommentsController');
