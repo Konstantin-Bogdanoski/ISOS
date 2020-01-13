@@ -11,8 +11,8 @@
                 </ul>
             </div><br/>
         @endif
-        <h1>Add Product</h1>
-        <form method="post" action="{{action('ProductsController@update', $product->slug)}}">
+        <h1>Edit Product</h1>
+            <form method="post" action="{{action('ProductsController@update', $product->slug)}}">
             {{csrf_field()}}
             <input type="hidden" name="_method" value="PATCH">
             <div class="row">
