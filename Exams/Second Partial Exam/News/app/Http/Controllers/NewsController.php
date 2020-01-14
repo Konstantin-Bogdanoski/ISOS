@@ -12,6 +12,38 @@ use Illuminate\Http\Response;
 class NewsController extends Controller
 {
     /**
+     * Downvote news.
+     *
+     * @return Response
+     */
+    public function downvote(Request $request, News $news)
+    {
+        $news->num_upvotes = $news->num_upvotes - 1;
+        if ($news->save()) {
+            session()->flash('upvote', 'Downvoted');
+        } else {
+            session()->flash('upvote', 'Try to downvote again');
+        }
+        return back();
+    }
+
+    /**
+     * Upvote news.
+     *
+     * @return Response
+     */
+    public function upvote(Request $request, News $news)
+    {
+        $news->num_upvotes = $news->num_upvotes + 1;
+        if ($news->save()) {
+            session()->flash('upvote', 'Upvoted');
+        } else {
+            session()->flash('upvote', 'Try to upvote again');
+        }
+        return back();
+    }
+
+    /**
      * Display top news.
      *
      * @return Response

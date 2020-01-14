@@ -7,7 +7,13 @@
             <div style="height: 5%">
                 <a class="lead" href="{{$news['news_link']}}">Link to source</a><br>
                 <span class="lead">{{$news['created_at']}}</span><br>
-                <span class="lead font-weight-bold">Upvotes - {{$news['num_upvotes']}}</span>
+                <span class="lead font-weight-bold">
+                    <span>Upvotes - {{$news['num_upvotes']}}</span>
+                    <div class="container">
+                        <a href="/news/{{$news['id']}}/upvote" class="btn btn-default">Upvote</a>
+                        <a href="/news/{{$news['id']}}/downvote" class="btn btn-default">Downvote</a>
+                    </div>
+                </span>
             </div>
         </div>
     </div>
@@ -15,6 +21,11 @@
         @if (\Session::has('success'))
             <div class="alert alert-success">
                 <p>{{ \Session::get('success') }}</p>
+            </div><br/>
+        @endif
+        @if (\Session::has('upvote'))
+            <div class="alert alert-info">
+                <p>{{ \Session::get('upvote') }}</p>
             </div><br/>
         @endif
         <div class="jumbotron" style="height: 50%">

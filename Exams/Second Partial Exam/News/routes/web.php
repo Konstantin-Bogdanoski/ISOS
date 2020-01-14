@@ -21,6 +21,10 @@ Route::get('/', function () {
 
 Route::get('/news/top', 'NewsController@top')->name('news.top');
 
+Route::get('/news/{news}/upvote', 'NewsController@upvote')->name('news.upvote');
+
+Route::get('/news/{news}/downvote', 'NewsController@downvote')->name('news.downvote');
+
 Route::bind('news', function ($value, $route) {
     return App\News::where('id', $value)->first();
 });
