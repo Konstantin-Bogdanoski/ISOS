@@ -1,5 +1,5 @@
 # ISOS
-### Implementation of Systems with Open Source 2019 [Имплементација на Системи со Отворен Код]
+### Implementation of Systems of Open Source 2019 [Имплементација на Системи со Отворен Код]
 ***
 This repository contains the files of the subject Implemetation of Systems with Open Source
 Any contribution is welcome.
